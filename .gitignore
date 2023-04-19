@@ -1,0 +1,7 @@
+.idea
+.env
+DocumentClusteringAgglomerative/cache
+DocumentClusteringDBSCAN2/cache
+DocumentClusteringKMeans2/cache
+tf1/model
+.python-version
