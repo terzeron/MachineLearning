@@ -41,7 +41,7 @@ fp1, residuals, rank, sv, round = np.polyfit(x, y, 1, full=True)
 print("Model parameters: %s" % fp1)
 print("residuals=%f" % residuals[0])
 
-f1 = sp.poly1d(fp1) # regression function
+f1 = np.poly1d(fp1) # regression function
 print(error(f1, x, y)) # equal to the residual
 fx = np.linspace(0, x[-1], 1000)
 plt.plot(fx, f1(fx), linewidth=2)
@@ -49,7 +49,7 @@ plt.legend(["f1.order=%i" % f1.order], loc="upper left")
 
 # quadratic equation
 f2p = np.polyfit(x, y, 2)
-f2 = sp.poly1d(f2p)
+f2 = np.poly1d(f2p)
 print(error(f2, x, y))
 fx = np.linspace(0, x[-1], 1000)
 plt.plot(fx, f2(fx), linewidth=2)

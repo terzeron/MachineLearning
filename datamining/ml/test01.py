@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
+
 print("np.version.full_version=", np.version.full_version)
 
 a = np.array([0, 1, 2, 3, 4, 5])
@@ -30,7 +31,7 @@ print("=" * 80)
 print("[1,2,3,4,5] * 2=", [1, 2, 3, 4, 5] * 2) # 길이가 확장됨
 print("np.array([1,2,3,4,5]) * 2=", np.array([1, 2, 3, 4, 5]) * 2) # 배열 내의 개별 요소가 2배 
 
-c = np.array([1, 2, np.NAN, 3, 4])
+c = np.array([1, 2, np.nan, 3, 4])
 print("c=", c)
 print("np.isnan(c)=", np.isnan(c))
 print("c[~np.isnan(c)]=", c[~np.isnan(c)]) # 조건에 맞는 요소만 추려냄

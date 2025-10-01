@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
 from sklearn.feature_extraction.text import CountVectorizer
+
+
 vectorizer = CountVectorizer(min_df = 1)
 print(vectorizer)
 
 content = ["How to format my hard dist", " Hard disk format problems "]
 X = vectorizer.fit_transform(content)
 print("X=", X)
-feature_names = vectorizer.get_feature_names()
+feature_names = vectorizer.get_feature_names_out()
 print("feature_names=", feature_names)
 
 print(X.toarray().transpose())

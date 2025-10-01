@@ -1,8 +1,9 @@
-p#!/usr/bin/env python
+#!/usr/bin/env python
 
 from matplotlib import pyplot as plt
 from sklearn.datasets import load_iris
 import numpy as np
+
 
 # load data
 data = load_iris()

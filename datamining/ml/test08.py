@@ -17,7 +17,7 @@ X_train = vectorizer.fit_transform(posts)
 print("X_train=", X_train)
 num_samples, num_features = X_train.shape
 print("#samples={0}, #features={1}".format(num_samples, num_features))
-feature_names = vectorizer.get_feature_names()
+feature_names = vectorizer.get_feature_names_out()
 print("feature_names=", feature_names)
 
 new_post = "imaging databases"
