@@ -29,7 +29,7 @@ print("examine content")
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-vectorizer = TfidfVectorizer(stop_words={'english'})
+vectorizer = TfidfVectorizer(stop_words='english')
 vector = vectorizer.fit_transform(wiki_lst)
 # print(X)
 

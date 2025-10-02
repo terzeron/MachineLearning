@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+
 # import required sklearn libs
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -12,9 +15,11 @@ import numpy as np
 import re
 import string
 import nltk
+from nltk.corpus import stopwords
 nltk.download('punkt')
 nltk.download('stopwords')
-from nltk.corpus import stopwords
+nltk.download('punkt_tab')
+
 
 # viz libs
 import matplotlib.pyplot as plt

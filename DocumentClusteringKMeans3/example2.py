@@ -9,6 +9,7 @@ from sklearn.pipeline import Pipeline
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
+
 newsgroups_train = fetch_20newsgroups(subset='train', categories=['alt.atheism', 'sci.space', 'talk.religion.misc', 'comp.graphics'])
 #print(newsgroups_train)
 print(newsgroups_train.DESCR)
@@ -17,7 +18,7 @@ pipeline = Pipeline([
     ('vect', CountVectorizer()),
     ('tfidf', TfidfTransformer()),
 ])
-X = pipeline.fit_transform(newsgroups_train.data).todense()
+X = pipeline.fit_transform(newsgroups_train.data).toarray()
 #print(X)
 print("X.shape=", X.shape)
 

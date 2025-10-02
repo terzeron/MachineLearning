@@ -22,7 +22,7 @@ print("shape of test_label: {}".format(test_label.shape))
 
 from sklearn.cluster import KMeans
 #k_means = KMeans(n_clusters=3)
-k_means = KMeans(algorithm='auto', copy_x=True, init='k-means++', max_iter=300, n_clusters=3, n_init=10, random_state=None, tol=0.0001, verbose=0)
+k_means = KMeans(copy_x=True, init='k-means++', max_iter=300, n_clusters=3, n_init=10, random_state=None, tol=0.0001, verbose=0)
 k_means.fit(train_input)
 # k=3이므로 0,1,2번 클러스터가 생성됨
 # 0번 클러스터는 주로 2번과 1번 품종의 데이터가 모여있음

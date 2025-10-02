@@ -6,6 +6,7 @@ import os
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 #%matplotlib inline
 
 DATA_IN_PATH = "word2vec-nlp-tutorial/"

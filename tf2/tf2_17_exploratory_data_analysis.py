@@ -2,15 +2,34 @@
 
 import os
 import re
+import tarfile
 import pandas as pd
 import tensorflow as tf
 
 
-data_set = tf.keras.utils.get_file(
+data_tar = tf.keras.utils.get_file(
     fname="imdb.tar.gz",
     origin="http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz",
-    extract=True)
+    extract=False,  # <- 우리가 직접 풀 거라 False로 변경
+)
 
+# 2) 압축 해제 경로
+cache_dir = os.path.dirname(data_tar)                 # ~/.keras/datasets
+base_dir  = os.path.join(cache_dir, "aclImdb")        # ~/.keras/datasets/aclImdb
+
+# 3) 폴더 없으면 직접 해제
+if not os.path.isdir(base_dir):
+    print(f"[info] Extracting to {cache_dir} ...")
+    with tarfile.open(data_tar, "r:gz") as tar:
+        tar.extractall(path=cache_dir)
+
+# 4) 최종 확인 (여전히 없으면 오류 안내)
+if not (os.path.isdir(os.path.join(base_dir, "train", "pos")) and
+        os.path.isdir(os.path.join(base_dir, "train", "neg"))):
+    raise FileNotFoundError(
+        f"Expected directories not found under: {base_dir}\n"
+        "Check write permissions for ~/.keras/datasets or delete the tar and retry."
+    )
 
 def directory_data(directory):
     data = {}
@@ -30,8 +49,8 @@ def data(directory):
     return pd.concat([pos_df, neg_df])
 
 
-train_df = data(os.path.join(os.path.dirname(data_set), "aclImdb", "train"))
-test_df = data(os.path.join(os.path.dirname(data_set), "aclImdb", "test"))
+train_df = data(os.path.join(os.path.dirname(data_tar), "aclImdb", "train"))
+test_df = data(os.path.join(os.path.dirname(data_tar), "aclImdb", "test"))
 print(train_df.head())
 reviews = list(train_df['review'])
 
