@@ -1,8 +1,8 @@
 .idea
 .env
-DocumentClusteringAgglomerative/cache
-DocumentClusteringDBSCAN2/cache
-DocumentClusteringKMeans2/cache
+*/cache
+*/ko.dict
+*/ko_word2vec.model
 tf1/model
 .python-version
 data_out
